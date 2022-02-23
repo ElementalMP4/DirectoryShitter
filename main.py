@@ -28,9 +28,13 @@ for file in files:
         content = ""
         with open(file, "r") as textFile:
             content = textFile.read()
+            lines = content.split("\n")
             textFile.close()
             output.write("# # # # # " + fileName + " # # # # # \n\n")
-            output.write(content)
+            count = 1
+            for line in lines:
+                output.write(str(count) + ". " + line + "\n")
+                count += 1
             output.write("\n\n")
         
     else:
